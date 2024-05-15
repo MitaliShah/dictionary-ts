@@ -1,4 +1,4 @@
-import React, { type ReactNode, createContext, useContext, useState } from 'react';
+import React, { type ReactNode, createContext, useContext, useState, useEffect } from 'react';
 
 // Types for the context values
 export type FontThemeContextType = {
@@ -39,6 +39,10 @@ export const FontThemeProvider = ({ children }: FontThemeProviderProps) => {
     isDarkTheme,
     toggleDarkTheme
   }; 
+
+  useEffect(() => {
+    document.body.classList.toggle('dark-theme', isDarkTheme);
+  }, [isDarkTheme]);
 
   return (
     <FontThemeContext.Provider value={values}>

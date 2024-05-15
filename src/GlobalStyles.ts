@@ -62,6 +62,11 @@ const GlobalStyles = createGlobalStyle`
         padding: 0;
         border: 0;
     }
+
+    .dark-theme {
+        background: var(--black);
+        color: var(--white);       
+    }
 `;
 
 export default GlobalStyles;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export default function ThemeSelection() {
     const { isDarkTheme, toggleDarkTheme } = useFontThemeContext();
-    
+
     return(
         <Button onClick={toggleDarkTheme}>        
         {isDarkTheme ? (
