@@ -1,12 +1,29 @@
 import FontOptions from "./FontOptions"
+import ThemeSelection from "./ThemeSelection";
+import styled from "styled-components";
+
 export default function FormThemeForm() {
-    //const { selectedFont, setSelectedFont, isDarkTheme, toggleDarkTheme } = useFontThemeContext();
-    
+
     return(
-        <form onSubmit={(event) => {
+        <Form onSubmit={(event) => {
             event.preventDefault();
-          }}>
-            <FontOptions />
-        </form>
+          }}>            
+            <Wrapper>
+                <FontOptions />
+                <ThemeSelection />
+            </Wrapper>
+            
+        </Form>
     )
 }
+
+const Form = styled.form`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const Wrapper = styled.div`
+   display: flex;
+   align-items: center;
+`;

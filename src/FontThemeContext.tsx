@@ -28,7 +28,7 @@ type FontThemeProviderProps = {
 export const FontThemeProvider = ({ children }: FontThemeProviderProps) => {  
   const [selectedFont, setSelectedFont] = useState("serif");
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-
+  console.log(isDarkTheme)
   const toggleDarkTheme = () => {
     setIsDarkTheme(prevState => !prevState);
   }

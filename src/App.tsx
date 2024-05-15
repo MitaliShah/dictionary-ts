@@ -17,6 +17,7 @@ export default App
 
 const Main = styled.main`
     max-width: 23.438rem;
+    width: 326px;
     margin: 0 auto;
     
     @media (min-width: 920px) {    
