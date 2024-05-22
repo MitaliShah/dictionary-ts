@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import { useFontThemeContext } from '../FontThemeContext';
 import styled from 'styled-components';
 
 export default function FontOptions() {
     const { selectedFont, setSelectedFont } = useFontThemeContext();
+
+    useEffect(() => {
+        document.body.style.fontFamily = selectedFont;
+    }, [selectedFont]);
     
     return(
         <div>
