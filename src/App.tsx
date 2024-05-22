@@ -2,17 +2,25 @@ import GlobalStyles from "./GlobalStyles";
 import styled from "styled-components";
 import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
+import useDictionary from "./hooks/useDictionary";
+import Results from "./components/Results";
 import { useState } from "react";
 
 function App(): JSX.Element {
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const { data, error, isLoading } = useDictionary({ searchTerm });
 
-  return (
-    <Main>
+  return (    
+      <Main>
       <Header />
       <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        {isLoading && <h1>Loading...</h1>}
+        {error && <h2>error...</h2>}
+        {!isLoading && !error && (
+        <Results data={data} />
+      )}
       <GlobalStyles />
-    </Main>
+      </Main>  
   );
 }
 
