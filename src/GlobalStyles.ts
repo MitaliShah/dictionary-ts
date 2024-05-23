@@ -29,7 +29,7 @@ const GlobalStyles = createGlobalStyle`
         font-family: "Lora", serif;
         font-size: 1rem;
         background-color: var(--white);
-        color: var(--black);
+        color: var(--charcoal-gray);
         display: flex;
         justify-content: center;
         align-items: center;

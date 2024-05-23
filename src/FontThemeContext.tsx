@@ -1,4 +1,4 @@
-import React, { type ReactNode, createContext, useContext, useState, useEffect } from 'react';
+import { type ReactNode, createContext, useContext, useState, useEffect } from 'react';
 
 // Types for the context values
 export type FontThemeContextType = {
@@ -28,7 +28,7 @@ type FontThemeProviderProps = {
 export const FontThemeProvider = ({ children }: FontThemeProviderProps) => {  
   const [selectedFont, setSelectedFont] = useState("serif");
   const [isDarkTheme, setIsDarkTheme] = useState(false);
-  console.log(isDarkTheme)
+  // console.log(isDarkTheme)
   const toggleDarkTheme = () => {
     setIsDarkTheme(prevState => !prevState);
   }
