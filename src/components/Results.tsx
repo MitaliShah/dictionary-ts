@@ -45,8 +45,8 @@ export default function Results({ data }: ResultsProps): JSX.Element {
     <div>
       <TextAudio>
         <div>
-          <Heading>{word}</Heading>
-          <PhoneticText>{text}</PhoneticText>
+          {word && <Heading>{word}</Heading>}
+          {text && <PhoneticText>{text}</PhoneticText>}
         </div>
         <div>
           <audio ref={audioRef} src={audio ?? undefined} />
@@ -55,11 +55,15 @@ export default function Results({ data }: ResultsProps): JSX.Element {
       </TextAudio>
       <div>
         <div>
-          <WrapNoun>
-            <NounVerb>{noun}</NounVerb>
-          </WrapNoun>
-          <MeaningTitle>Meaning</MeaningTitle>
-          <WrapperDefinition>{definitionNoun}</WrapperDefinition>
+          {definitionNoun.length > 0 && (
+            <>
+              <WrapNoun>
+                <NounVerb>{noun}</NounVerb>
+              </WrapNoun>
+              <MeaningTitle>Meaning</MeaningTitle>
+              <WrapperDefinition>{definitionNoun}</WrapperDefinition>
+            </>
+          )}
           <div>
             <SynonymsText>
               <Synonyms>{synonyms[0] && `Synonyms `}</Synonyms>
@@ -68,12 +72,20 @@ export default function Results({ data }: ResultsProps): JSX.Element {
           </div>
         </div>
         <div>
-          <WrapNoun>
-            <NounVerb>{verb}</NounVerb>
-          </WrapNoun>
-          <MeaningTitle>Meaning</MeaningTitle>
+          {definitionVerb.length > 0 && (
+            <>
+              <WrapNoun>
+                <NounVerb>{verb}</NounVerb>
+              </WrapNoun>
+              <MeaningTitle>Meaning</MeaningTitle>
+              <WrapperDefinition>{definitionVerb}</WrapperDefinition>
+              <VerbExample>{definitionVerbExample}</VerbExample>
+            </>
+          )}
+          {/* <MeaningTitle>Meaning</MeaningTitle> */}
+          {/* {definitionVerb.length > 0 && <MeaningTitle>Meaning</MeaningTitle>}
           <WrapperDefinition>{definitionVerb}</WrapperDefinition>
-          <VerbExample>{definitionVerbExample}</VerbExample>
+          <VerbExample>{definitionVerbExample}</VerbExample> */}
         </div>
       </div>
       <HorizontalLine></HorizontalLine>
@@ -170,25 +182,6 @@ const VerbExample = styled.div`
   color: var(--slate-gray);
   quotes: initial;
 `;
-
-// const Example = styled.q`
-//   ::before {
-//     content: open-quote;
-//   }
-
-//   ::after {
-//     content: close-quote;
-//   }
-// `;
-// const Wr = styled.p`
-//   ::before {
-//     content: open-quote;
-//   }
-
-//   ::after {
-//     content: close-quote;
-//   }
-// `;
 
 const HorizontalLine = styled.div`
   position: relative;
