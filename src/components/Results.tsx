@@ -114,6 +114,14 @@ const PhoneticText = styled.span`
 
 const Img = styled.img`
   width: 48px;
+
+  @media (min-width: 689px) {
+    width: 75px;
+  }
+
+  @media (min-width: 920px) {
+    width: 75px;
+  }
 `;
 
 const WrapNoun = styled.div`

@@ -38,6 +38,11 @@ const Main = styled.main`
   margin: 0 auto;
   margin-top: 24px;
 
+  @media (min-width: 689px) {
+    max-width: 689px;
+    width: 689px;
+  }
+
   @media (min-width: 920px) {
     max-width: 920px;
     width: 920px;

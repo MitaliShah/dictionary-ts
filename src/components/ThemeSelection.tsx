@@ -5,7 +5,7 @@ export default function ThemeSelection() {
   const { isDarkTheme, toggleDarkTheme } = useFontThemeContext();
 
   return (
-    <Button onClick={toggleDarkTheme}>
+    <Button onClick={toggleDarkTheme} aria-label="theme selection">
       {isDarkTheme ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -13,6 +13,7 @@ export default function ThemeSelection() {
           height="22"
           viewBox="0 0 73 22"
           fill="none"
+          aria-hidden="true" focusable="false"
         >
           <rect y="1" width="40" height="20" rx="10" fill="#A445ED" />
           <circle cx="30" cy="11" r="7" fill="white" />
@@ -33,6 +34,7 @@ export default function ThemeSelection() {
           height="22"
           viewBox="0 0 73 22"
           fill="none"
+          aria-hidden="true" focusable="false"
         >
           <rect y="1" width="40" height="20" rx="10" fill="#757575" />
           <circle cx="10" cy="11" r="7" fill="white" />

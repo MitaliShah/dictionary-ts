@@ -44,6 +44,7 @@ const Wrapper = styled.div`
   margin-top: 24px;
   color: var(--charcoal-gray);
   background-color: var(--white);
+  border-radius: 10px;
 `;
 
 const Input = styled.input`
@@ -54,11 +55,12 @@ const Input = styled.input`
   padding-right: 0px;
   color: var(--charcoal-gray);
   outline: none;
-  border-radius: 8px;
+  border-radius: 10px 0 0 10px;
   overflow: hidden;
 `;
 
 const Img = styled.img`
   background: var(--light-gray);
   padding-right: 24px;
+  border-radius: 0 10px 10px 0;
 `;
