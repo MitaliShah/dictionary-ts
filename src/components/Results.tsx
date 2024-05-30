@@ -82,10 +82,6 @@ export default function Results({ data }: ResultsProps): JSX.Element {
               <VerbExample>{definitionVerbExample}</VerbExample>
             </>
           )}
-          {/* <MeaningTitle>Meaning</MeaningTitle> */}
-          {/* {definitionVerb.length > 0 && <MeaningTitle>Meaning</MeaningTitle>}
-          <WrapperDefinition>{definitionVerb}</WrapperDefinition>
-          <VerbExample>{definitionVerbExample}</VerbExample> */}
         </div>
       </div>
       <HorizontalLine></HorizontalLine>

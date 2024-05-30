@@ -18,11 +18,11 @@ function App(): JSX.Element {
       <SearchForm searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
       {isLoading && <h1>Loading...</h1>}
       {error && (
-        <div>
-          <h2>{<img src={sadSmiley} alt="" />}</h2>
-          <p>{error}</p>
-          <p>{notFoundDescription}</p>
-        </div>
+        <ErrorWrapper>
+          <ErrorEmojie>{<img src={sadSmiley} alt="" />}</ErrorEmojie>
+          <Error>{error}</Error>
+          <ErrorDesc>{notFoundDescription}</ErrorDesc>
+        </ErrorWrapper>
       )}
       {!isLoading && !error && <Results data={data} />}
       <GlobalStyles />
@@ -42,4 +42,27 @@ const Main = styled.main`
     max-width: 920px;
     width: 920px;
   }
+`;
+
+const ErrorWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+`;
+
+const ErrorEmojie = styled.span`
+  margin-top: 132px;
+  margin-bottom: 44px;
+`;
+
+const Error = styled.p`
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+const ErrorDesc = styled.p`
+  color: var(--slate-gray);
+  margin-top: 24px;
 `;
