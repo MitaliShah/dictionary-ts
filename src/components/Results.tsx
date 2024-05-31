@@ -153,8 +153,7 @@ const NounVerb = styled.span`
     vertical-align: middle;
   }
 
-  @media (min-width: 689px) {
-    
+  @media (min-width: 689px) {    
     &::after {
       width: 608px;    
     }
@@ -235,11 +234,16 @@ const HorizontalLine = styled.div`
 
 const SourceWrapper = styled.div`
   margin-top: 48px;
-
+  margin-bottom: 85px;
   @media (min-width: 689px) {
     display: flex;
     align-items: center;
     gap: 25px;
+    margin-bottom: 118px;
+  }
+
+  @media (min-width: 920px) {
+    margin-bottom: 123px;
   }
 `;
 
