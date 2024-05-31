@@ -33,6 +33,12 @@ export const FontThemeProvider = ({ children }: FontThemeProviderProps) => {
     setIsDarkTheme(prevState => !prevState);
   }
 
+  useEffect(() => {
+    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    console.log(`User prefers dark theme: ${userPrefersDark}`);
+    setIsDarkTheme(userPrefersDark);
+}, []);
+
   const values: FontThemeContextType = {
     selectedFont,
     setSelectedFont,
@@ -42,6 +48,7 @@ export const FontThemeProvider = ({ children }: FontThemeProviderProps) => {
 
   useEffect(() => {
     document.body.classList.toggle('dark-theme', isDarkTheme);
+    console.log(`Theme updated: ${isDarkTheme ? 'dark' : 'light'}`);
   }, [isDarkTheme]);
 
   return (

@@ -220,7 +220,7 @@ const VerbExample = styled.div`
 const HorizontalLine = styled.div`
   position: relative;
   width: 100%;
-  margin-bottom: 13px; /* Adjust margin as needed */
+  margin-bottom: 13px;
   margin-top: 32px;
 
   &::before {
