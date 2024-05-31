@@ -103,6 +103,15 @@ const TextAudio = styled.div`
 const Heading = styled.h1`
   font-size: 32px;
   font-weight: bold;
+
+  @media (min-width: 689px) {
+    font-size: 64px;
+  }
+
+  @media (min-width: 920px) {
+    font-size: 64px;
+    line-height: 1.2;
+  }
 `;
 
 const PhoneticText = styled.span`
@@ -119,9 +128,9 @@ const Img = styled.img`
     width: 75px;
   }
 
-  @media (min-width: 920px) {
+  /* @media (min-width: 920px) {
     width: 75px;
-  }
+  } */
 `;
 
 const WrapNoun = styled.div`
@@ -142,6 +151,19 @@ const NounVerb = styled.span`
     border-bottom: 1px solid var(--pale-gray);
     margin-left: 25px;
     vertical-align: middle;
+  }
+
+  @media (min-width: 689px) {
+    
+    &::after {
+      width: 608px;    
+    }
+  }
+
+  @media (min-width: 920px) {
+    &::after {
+      width: 855px;
+    }
   }
 `;
 
@@ -166,6 +188,10 @@ const ListItem = styled.li`
   &::marker {
     color: var(--violet);
   }
+
+  @media (min-width: 689px) {
+    font-size: 18px;
+  }
 `;
 
 const Synonyms = styled.span`
@@ -179,6 +205,10 @@ const SynonymsText = styled.p`
   font-size: 16px;
   font-weight: bold;
   margin-top: 24px;
+
+  @media (min-width: 689px) {
+    font-size: 20px;
+  }
 `;
 
 const VerbExample = styled.div`
@@ -206,7 +236,7 @@ const HorizontalLine = styled.div`
 const SourceWrapper = styled.div`
   margin-top: 48px;
 
-  @media (min-width: 920px) {
+  @media (min-width: 689px) {
     display: flex;
     align-items: center;
     gap: 25px;
