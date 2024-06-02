@@ -43,4 +43,4 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/MitaliShah/dictionary-ts](https://github.com/MitaliShah/dictionary-ts)
-- Live Site URL: [https://main--willowy-palmier-f2948f.netlify.app/](https://main--willowy-palmier-f2948f.netlify.app/)
+- Live Site URL: [https://willowy-palmier-f2948f.netlify.app/](https://willowy-palmier-f2948f.netlify.app/)
