@@ -46,6 +46,8 @@ export default function FontOptions() {
       ...provided,
       backgroundColor: isDarkTheme ? "var(--very-dark-gray)" : "var(--white)",
       boxShadow: "0 0 5px var(--violet)",
+      width: "183px",
+      left: "-40px",
     }),
     option: (provided) => ({
       ...provided,
