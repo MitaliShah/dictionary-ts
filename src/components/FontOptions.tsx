@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useFontThemeContext } from "../FontThemeContext";
 import Select, { StylesConfig } from "react-select";
 
@@ -15,17 +15,28 @@ interface OptionType {
 
 export default function FontOptions() {
   const { isDarkTheme, selectedFont, setSelectedFont } = useFontThemeContext();
+  const selectRef = useRef<HTMLSelectElement>(null);
 
   useEffect(() => {
-    if (!selectedFont) {
-      setSelectedFont(options[0].value);
+    if (!selectedFont.value) {
+      setSelectedFont(options[0]);
+    } else {
+      document.body.style.fontFamily = selectedFont.value;
     }
-    document.body.style.fontFamily = selectedFont;
   }, [selectedFont, setSelectedFont]);
 
   const handleChange = (selectedOption: OptionType | null) => {
     if (selectedOption) {
-      setSelectedFont(selectedOption.value);
+      setSelectedFont(selectedOption);
+    } else {
+      // setSelectedFont(options[0]);
+      console.error("No font option selected");
+    }
+  };
+
+  const handleFocus = () => {
+    if (selectRef.current) {
+      selectRef.current.focus();
     }
   };
 
@@ -71,7 +82,13 @@ export default function FontOptions() {
       options={options}
       onChange={handleChange}
       styles={customStyles}
-      value={options.find((option) => option.value === selectedFont)}
+      aria-label="Font Options"
+      isSearchable={false}
+      onFocus={handleFocus}
+      value={
+        options.find((option) => option.value === selectedFont.value) ||
+        options[0]
+      }
     />
   );
 }

@@ -1,6 +1,6 @@
 import searchlogo from "../../public/assets/images/icon-search.svg";
 import styled, { css } from "styled-components";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 type SearchFormProps = {
   searchTerm: string;
@@ -13,20 +13,33 @@ export default function SearchForm({
 }: SearchFormProps) {
   const [interacted, setInteracted] = useState<boolean>(false);
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setInteracted(false);
+  }, [searchTerm]);
+
+  useEffect(() => {
+    // Focus the search input on component mount
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
 
   return (
     <>
       <form
         onSubmit={(event) => {
           event.preventDefault();
+          if (!searchTerm) setInteracted(true);
         }}
       >
-        <Wrapper $isfocused={isFocused} $showError={interacted && !searchTerm}>
+        <Wrapper $isfocused={isFocused} $showerror={interacted && !searchTerm}>
           <Input
+            ref={inputRef}
             value={searchTerm}
             onChange={(e) => {
               setSearchTerm(e.target.value);
-              setInteracted(true);
             }}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
@@ -44,7 +57,7 @@ export default function SearchForm({
   );
 }
 
-const Wrapper = styled.div<{ $isfocused: boolean; $showError: boolean }>`
+const Wrapper = styled.div<{ $isfocused: boolean; $showerror: boolean }>`
   display: flex;
   margin-top: 24px;
   color: var(--charcoal-gray);
@@ -57,8 +70,8 @@ const Wrapper = styled.div<{ $isfocused: boolean; $showError: boolean }>`
       border: 1px solid var(--violet);
     `}
 
-  ${({ $showError }) =>
-    $showError &&
+  ${({ $showerror }) =>
+    $showerror &&
     css`
       border: 1px solid var(--orange);
     `}
